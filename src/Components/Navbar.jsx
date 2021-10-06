@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
     <>
-<nav className= {`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}>
+      <nav
+        className={`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             {props.title}
@@ -27,27 +28,26 @@ const Navbar = (props) => {
                   Home
                 </a>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link" href="#">
-                  {props.aboutText}
-                </a>
-              </li> */}
             </ul>
-            {/* <form className="d-flex">
+
+            <div
+              className={`form-check form-switch mx-2 text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+            >
               <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
+                className="form-check-input"
+                onClick={props.toggleMode}
+                type="checkbox"
+                id="flexSwitchCheckDefault"
               />
-              <button className="btn btn-primary" type="submit">
-                Search
-              </button>
-            </form> */}
-            <div className={`form-check form-switch mx-2 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
-  <input className="form-check-input" onClick = {props.toggleMode} type="checkbox" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
-</div>
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Enable Dark Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -55,13 +55,11 @@ const Navbar = (props) => {
   );
 };
 
-Navbar.propTypes = { title: PropTypes.string, aboutText: PropTypes.string};
+Navbar.propTypes = { title: PropTypes.string, aboutText: PropTypes.string };
 
 Navbar.defaultProps = {
-    title: 'Set title here',
-    aboutText : 'About'
-
-}
+  title: "Set title here",
+  aboutText: "About",
+};
 
 export default Navbar;
-

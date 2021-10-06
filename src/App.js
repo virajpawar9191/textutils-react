@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Alert from "./Components/Alert";
-// import About from './Components/About'
 import Navbar from "./Components/Navbar";
 import Textform from "./Components/Textform";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const [mode, setMode] = useState("light"); // dark mode is enaled or not
+  const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -32,25 +30,16 @@ const App = () => {
 
   return (
     <>
-      {/* <Router> */}
-        <Navbar title="TxtUtils" mode={mode} toggleMode={toggleMode} />
-        <Alert alert={alert} />
-        {/* <Switch> */}
-          {/* <Route exact  path="/about"> */}
-            {/* <About /> */}
-          {/* </Route> */}
-          {/* <Route exact path="/"> */}
-            <div className="container my-3">
-              <Textform
-                heading="Enter the text to Analyze Below"
-                mode={mode}
-                showAlert={showAlert}
-              />
-              {/* <About/> */}
-            </div>
-          {/* </Route> */}
-        {/* </Switch> */}
-      {/* </Router> */}
+      <Navbar title="TxtUtils" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
+
+      <div className="container my-3">
+        <Textform
+          heading="TextUtils - Word Counter | Chracter Counter | Remove Extra Spaces"
+          mode={mode}
+          showAlert={showAlert}
+        />
+      </div>
     </>
   );
 };
